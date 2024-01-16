@@ -1,0 +1,55 @@
+<!-- <h1>{{ currentHero.id ? 'Editar' : 'Agregar' }} héroe <small *ngIf="currentHero.id">{{ currentHero.superhero }}</small></h1> -->
+
+<mat-divider class="mb-2"></mat-divider>
+
+<div class="grid">
+  <div class="col-12 sm:col-6">
+    <mat-card>
+      <mat-card-content>
+        <form class="grid" [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+          <mat-form-field class="col-12 sm:col-6">
+            <mat-label>Nombre</mat-label>
+            <input matInput type="text" required formControlName="name">
+          </mat-form-field>
+
+          <mat-form-field class="col-12 sm:col-6">
+            <mat-label>Adultos</mat-label>
+            <input matInput type="number" required formControlName="adults">
+          </mat-form-field>
+
+          <mat-form-field class="col-12">
+            <mat-label>Niños</mat-label>
+            <input matInput type="number" required formControlName="children">
+          </mat-form-field>
+
+          <mat-form-field class="col-12">
+            <mat-label>Habitación</mat-label>
+            <mat-select required formControlName="room">
+              <mat-option *ngFor="let room of rooms" [value]="room.id"><label class="circle-label" [style.background-color]="room.color"></label>{{ room.desc}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </form>
+
+        <div class="flex justify-content-between">
+          <!-- <button *ngIf="currentHero.id" mat-flat-button color="warn" (click)="onDeleteHero()">
+            Borrar
+          </button> -->
+          <span></span>
+
+          <button mat-flat-button color="primary" (click)="onSubmit()">
+            <mat-icon>save</mat-icon>
+            Guardar
+          </button>
+        </div>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="col-12 sm:col-6">
+    <mat-card>
+      <!-- <img [src]="currentHero | heroImage" alt="imagen del héroe" mat-card-image> -->
+    </mat-card>
+  </div>
+
+</div>

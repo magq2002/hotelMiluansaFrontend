@@ -1,0 +1,7 @@
+.circle-label {
+  display: inline-block;
+  border-radius: 50%;
+  width: 20px;  /* Ancho del círculo */
+  height: 20px; /* Altura del círculo */
+  margin-right: 10px; /* Espacio entre el círculo y el texto */
+}
