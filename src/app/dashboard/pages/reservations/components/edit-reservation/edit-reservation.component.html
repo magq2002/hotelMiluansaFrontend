@@ -1,0 +1,61 @@
+
+<mat-divider class="mb-2"></mat-divider>
+
+<div class="grid">
+  <div class="col-12 sm:col-6">
+    <mat-card>
+      <mat-card-content>
+        <form class="grid" [formGroup]="reservationForm">
+          <mat-form-field class="col-12 sm:col-6">
+            <mat-label>Nombre</mat-label>
+            <input matInput type="text" required formControlName="name">
+          </mat-form-field>
+
+          <mat-form-field class="col-12 sm:col-6">
+            <mat-label>Adultos</mat-label>
+            <input matInput type="number" required formControlName="adults">
+          </mat-form-field>
+
+          <mat-form-field class="col-12">
+            <mat-label>Niños</mat-label>
+            <input matInput type="number" required formControlName="children">
+          </mat-form-field>
+
+          <div class="row">
+            <mat-form-field class="col-6">
+              <mat-label>Habitación</mat-label>
+              <mat-select required formControlName="room">
+                <mat-option *ngFor="let room of rooms" [value]="room.id"><label class="circle-label" [style.background-color]="room.color"></label>{{ room.desc}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="col-6">
+              <mat-label>Enter a date range</mat-label>
+              <mat-date-range-input [rangePicker]="picker">
+                <input matStartDate formControlName="checkIn" placeholder="Start date">
+                <input matEndDate formControlName="checkOut" placeholder="End date">
+              </mat-date-range-input>
+              <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+          </div>
+        </form>
+      </mat-card-content>
+      <br>
+      <mat-divider></mat-divider>
+      <mat-card-actions style="display:flex; justify-content: space-around;">
+
+        <button mat-button mat-raised style="background-color: #DC3545;">
+          <mat-icon>cancel</mat-icon>
+          Cancelar
+        </button>
+
+        <button mat-button mat-raised style="background-color: #0DCAF0" (click)="onEditReservation()">
+          <mat-icon>edit</mat-icon>
+          Editar
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

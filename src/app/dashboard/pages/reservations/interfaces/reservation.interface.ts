@@ -1,12 +1,12 @@
 
 
 export interface Reservation {
-  id?:         string;
+  _id:         string;
   name:       string;
-  adults:     string;
-  children:   string;
+  adults:     number;
+  children:   number;
   room:       number;
-  checkIn:    Date;
-  checkOut:    Date;
+  checkIn:    string;
+  checkOut:    string;
 }
 

@@ -18,10 +18,10 @@ export class ReservationsService {
     return this.http.get<Reservation[]>(`${this.baseUrl}/reservation`);
   }
 
-  getReservationsById( id:string ):Observable<Reservation | undefined>{
+  getReservationsById( id:string ):Observable<Reservation>{
     return this.http.get<Reservation>(`${this.baseUrl}/reservation/${ id }`)
     .pipe(
-      catchError( error => of(undefined))
+      catchError( error => of(error))
     )
   }
 
@@ -30,13 +30,12 @@ export class ReservationsService {
   }
 
   addReservation( reservation: Reservation ): Observable<Reservation> {
-    console.log( reservation );
     return this.http.post<Reservation>(`${ this.baseUrl }/reservation`, reservation );
   }
 
-  updateReservation( reservation: Reservation ): Observable<Reservation> {
-    if( !reservation.id ) throw Error( 'reservation id is required' );
-    return this.http.patch<Reservation>(`${ this.baseUrl }/reservation/${ reservation.id }`, reservation );
+  updateReservation( id: string, reservation: Reservation ): Observable<Reservation> {
+    console.log( reservation )
+    return this.http.patch<Reservation>(`${ this.baseUrl }/reservation/${ id }`, reservation );
   }
 
   deleteReservationById( id: string ): Observable<boolean> {

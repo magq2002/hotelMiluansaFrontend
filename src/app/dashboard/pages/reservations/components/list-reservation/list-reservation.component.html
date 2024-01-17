@@ -1,0 +1,35 @@
+<div class="grid">
+  <div class="col-12 sm:col-6" style="min-width: 300px">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ reservation.name }}</mat-card-title>
+        <mat-card-subtitle>Habitacion: {{ reservation.room }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="mt-2">
+        <p>
+          <strong>Adultos: </strong> {{ reservation.adults }}
+          <br />
+          <strong>Niños: </strong> {{ reservation.children }}
+          <br />
+          <strong>Check-In: </strong> {{ reservation.checkIn }}
+          <br />
+          <strong>Check-Out: </strong> {{ reservation.checkOut }}
+          <br />
+        </p>
+      </mat-card-content>
+      <br>
+      <mat-divider></mat-divider>
+      <mat-card-actions style="display:flex; justify-content: space-around;">
+        <button mat-button mat-raised style="background-color: #0DCAF0" (click)="onEditReservation()">
+          <mat-icon>edit</mat-icon>
+          Editar
+        </button>
+
+        <button mat-button mat-raised style="background-color: #DC3545;" (click)="onDeleteReservation()">
+          <mat-icon>delete</mat-icon>
+          Eliminar
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
