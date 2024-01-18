@@ -13,15 +13,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class EditReservationComponent implements OnInit {
 
-  public reservation: Reservation = {
-    _id: '',
-    name: '',
-    adults: 0,
-    children: 0,
-    room: 0,
-    checkIn: '',
-    checkOut: '',
-  };;
+
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<EditReservationComponent>) {}
 
@@ -75,7 +67,7 @@ export class EditReservationComponent implements OnInit {
     const checkInString = this.datePipe.transform(reservation.checkIn, 'yyyy-MM-dd');
     const checkOutString = this.datePipe.transform(reservation.checkOut, 'yyyy-MM-dd');
 
-    const { checkIn, checkOut, _id, ...data } = this.reservation;
+    const { checkIn, checkOut, ...data } = reservation;
     // Crea un nuevo objeto con la fecha formateada
     const currentReservation = {
       ...data,
@@ -101,6 +93,10 @@ export class EditReservationComponent implements OnInit {
 
   showSnackbar( message: string ):void {
     this.snackbar.open( message, 'done', { duration: 2500})
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close(false);
   }
 
 }

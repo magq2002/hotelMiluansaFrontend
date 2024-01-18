@@ -3,7 +3,7 @@
   <p>Este proceso no es reversible, está a punto de elimiar a {{ data.name }}</p>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button style="background-color: #DC3545;" (click)="onNoClick()">Cancelar</button>
   <span class="spacer"></span>
-  <button mat-button color="primary" (click)="onConfirm()" cdkFocusInitial>Ok</button>
+  <button mat-button style="background-color: #0DCAF0" (click)="onConfirm()" cdkFocusInitial>Ok</button>
 </div>

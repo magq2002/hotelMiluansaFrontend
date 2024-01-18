@@ -34,7 +34,6 @@ export class ReservationsService {
   }
 
   updateReservation( id: string, reservation: Reservation ): Observable<Reservation> {
-    console.log( reservation )
     return this.http.patch<Reservation>(`${ this.baseUrl }/reservation/${ id }`, reservation );
   }
 

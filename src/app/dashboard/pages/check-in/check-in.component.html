@@ -1,1 +1,48 @@
-<p>check-in works!</p>
+<div class="container mt-4">
+  <mat-card>
+    <mat-card-content>
+      <span class="h3">Listado Check-in</span>
+      <input name="filterItem" class="form-control mt-4" type="text" placeholder="Buscar por nombre completo" aria-label="Search">
+
+    <div class="items">
+      <div class="table-responsive table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl table-responsive-xxl" >
+    <table class="table mt-5 table-striped" >
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Tipo de documento</th>
+            <th>Numero documento</th>
+            <th>Fecha de Nacimiento</th>
+            <th>Ciudad</th>
+            <th>Direccion</th>
+            <th>Telefono</th>
+            <th>Correo</th>
+            <th>EPS/ARL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of items; let i= index  ">
+            <!-- <th>{{item.Id}}</th> -->
+            <th>{{item.name}}</th>
+            <th>{{item.nuip_type}}</th>
+            <th>{{item.nuip}}</th>
+            <th>{{item.dateBirth}}</th>
+            <th>{{item.city}}</th>
+            <th>{{item.address}}</th>
+            <th>{{item.phone}}</th>
+            <th>{{item.email}}</th>
+            <th>{{item.health}}</th>
+            <td>
+                <i class="fas fa-edit fa-lg text-info" (click)="onEditCheckIn(item._id)"></i>
+                <i (click)="onDeleteReservation(item._id)" class="fas fa-trash-alt fa-lg text-danger"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <button mat-flat-button style="background-color: #0DCAF0" (click)="onSubmit()">Agregar</button>
+    </mat-card-content>
+
+  </mat-card>
+</div>

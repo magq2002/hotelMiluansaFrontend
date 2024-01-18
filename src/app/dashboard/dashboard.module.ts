@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout.component';
@@ -11,13 +11,13 @@ import { RoomsComponent } from './pages/rooms/rooms.component';
 import { CalendarComponent } from './pages/reservations/components/calendar/calendar.component';
 import { ReservationsModule } from './pages/reservations/reservations.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CheckInModule } from './pages/check-in/check-in.module';
 
 
 @NgModule({
   declarations: [
     DashboardLayoutComponent,
     HomeComponent,
-    CheckInComponent,
     RoomsComponent,
   ],
   imports: [
@@ -25,7 +25,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     DashboardRoutingModule,
     MaterialModule,
     ReservationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CheckInModule,
+    NgOptimizedImage,
 
   ]
 })

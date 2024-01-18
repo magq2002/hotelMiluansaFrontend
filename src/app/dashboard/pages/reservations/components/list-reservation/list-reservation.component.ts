@@ -42,20 +42,24 @@ export class ListReservationComponent implements OnInit {
   onEditReservation(){
     if( !this.reservation._id ) throw Error('Reservation id is required');
 
-    const dialogRef = this.dialog.open( EditReservationComponent, {
+    const dialogEdit = this.dialog.open( EditReservationComponent, {
       data: this.reservation
     });
+
+    dialogEdit.afterClosed().subscribe(item => {
+      this.dialogRef.close();
+    })
   }
 
   onDeleteReservation(){
 
     if( !this.reservation._id ) throw Error('Reservation id is required');
 
-    const dialogRef = this.dialog.open( ConfirmDialogComponent, {
+    const dialogDelete = this.dialog.open( ConfirmDialogComponent, {
       data: this.reservation
     });
 
-    dialogRef.afterClosed()
+    dialogDelete.afterClosed()
       .pipe(
         filter( (result:boolean) => result ),
         switchMap( () => this.reservationsService.deleteReservationById( this.id )),
